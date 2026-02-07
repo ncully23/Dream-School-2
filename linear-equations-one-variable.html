@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Section 1, Module 1: Math — Linear Equations in One Variable (Practice)</title>
+
+  <!-- Bluebook-style quiz layout -->
+  <!-- Match circles.html path -->
+  <link rel="stylesheet" href="/assets/css/quiz.css" />
+
+  <!-- MathJax for inline TeX like \( \frac{4}{25}m \) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'],['$','$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer id="MathJax-script"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <div class="header" role="banner">
+      <div>
+        <div class="title" id="sectionTitle">
+          Section 1, Module 1: Math — Linear Equations in One Variable (Practice)
+        </div>
+        <button class="directions" aria-label="Directions">Directions ▾</button>
+      </div>
+      <div class="timer" aria-live="polite">
+        <b id="timeLeft">30:00</b>
+        <button id="toggleTimer" class="btn ghost" aria-pressed="false">Hide</button>
+      </div>
+      <div aria-hidden="true"></div>
+    </div>
+
+    <!-- Practice banner + ticks -->
+    <div class="ticks">THIS IS A PRACTICE TEST</div>
+    <div class="dashrow" id="dashrow"></div>
+
+    <!-- ONE-COLUMN QUESTION CARD -->
+    <div class="qwrap">
+      <article class="qcard" id="qcard">
+        <header class="qtop">
+          <div class="qbadge" id="qbadge">1</div>
+          <div class="qdash" aria-hidden="true"></div>
+          <button id="flagTop" class="flagbtn" aria-pressed="false">
+            <span class="flagicon"></span><span id="flagLabel">Mark for review</span>
+          </button>
+          <button id="elimToggle" class="elimbtn" aria-pressed="false" title="Eliminate answers">
+            <span class="elimicon" aria-hidden="true"></span> Eliminate
+          </button>
+        </header>
+
+        <h2 class="qtitle" id="qtitle">Question text</h2>
+        <div class="choices" id="choices" role="radiogroup" aria-label="Choices"></div>
+        <div class="hint" id="elimHint" style="display:none">
+          Eliminate mode is on — click an answer to gray it out. Click again to restore.
+        </div>
+      </article>
+    </div>
+
+    <!-- Review page (optional mid-test) -->
+    <section class="check-wrap" id="checkPage" aria-label="Check Your Work">
+      <h1 class="check-head">Check Your Work</h1>
+      <p class="check-sub">
+        On test day, you won’t be able to move on to the next module until time expires.
+      </p>
+      <div class="check-card">
+        <div class="check-row">
+          <div>Section 1, Module 1: Math — Linear Equations in One Variable Questions</div>
+          <div class="check-leg">
+            <span>
+              <span class="box"
+                    style="width:16px;height:16px;border:2px dashed #2b3350;border-radius:4px;
+                           display:inline-block;margin-right:6px"></span>
+              Unanswered
+            </span>
+            <span>
+              <span class="flag"
+                    style="width:12px;height:12px;background:var(--flag);
+                           display:inline-block;margin-right:6px"></span>
+              For Review
+            </span>
+          </div>
+        </div>
+        <div class="grid-nums" id="checkGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bottom rail -->
+  <div class="rail" role="contentinfo">
+    <div class="rail-inner">
+      <div class="progress" id="progress"></div>
+      <button class="center-pill" id="centerPill" aria-haspopup="dialog" aria-expanded="false">
+        <div class="pill-flag" id="pillFlag" style="display:none"></div>
+        <span id="pillText">Question 1 of 5</span><span class="caret">▾</span>
+      </button>
+      <div class="rail-left">
+        <button id="btnBack" class="btn nav">Back</button>
+      </div>
+      <div class="rail-actions">
+        <button id="btnNext" class="btn nav primary">Next</button>
+        <button id="btnFinish" class="btn nav primary" style="display:none">End &amp; Score</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review popover -->
+  <div class="popover" id="popover" role="dialog" aria-modal="false"
+       aria-label="Question Navigator">
+    <button class="close" id="popClose" aria-label="Close">×</button>
+    <div class="title">Section 1, Module 1: Math — Linear Equations in One Variable Questions</div>
+    <div class="legend">
+      <span>📍 Current</span>
+      <span><span class="box"></span> Unanswered</span>
+      <span><span class="flag"></span> For Review</span>
+    </div>
+    <div class="grid" id="popGrid"></div>
+    <button class="go-review" id="goReview">Go to Review Page</button>
+  </div>
+
+  <!-- Quiz config only; logic lives in /assets/quiz-engine.js -->
+  <script>
+    window.examConfig = {
+      topicId: "linear-equations-one-variable",
+      sectionTitle: "Section 1, Module 1: Math — Linear Equations in One Variable (Practice)",
+      storageKey: "dsa:quiz:linear-eq1",
+      summaryKey: "dsa:summary:linear-eq1",
+      timeLimitSec: 30 * 60,
+      questions: [
+        {
+          id: "26fac581",
+          prompt: "If \\(2(x-5)+3(x-5)=10\\), what is the value of \\(x-5\\)?",
+          choices: ["2","5","7","12"],
+          answerIndex: 0,
+          explanation: "Combine like terms: (2+3)(x−5)=10 → 5(x−5)=10 → x−5=2."
+        },
+        {
+          id: "48bad848",
+          prompt: "Megan’s regular wage at her job is \\(p\\) dollars per hour for the first 8 hours of work in a day plus 1.5 times her regular hourly wage for work in excess of 8 hours that day. On a given day, Megan worked for 10 hours, and her total earnings for that day were \\(\\$137.50\\). What is Megan’s regular hourly wage?",
+          choices: ["\\$11.75","\\$12.50","\\$13.25","\\$13.75"],
+          answerIndex: 1,
+          explanation: "Pay: \\(8p + 1.5p\\cdot 2 = 137.5\\) → \\(11p=137.5\\) → \\(p=12.5\\)."
+        },
+        {
+          id: "f0581e16",
+          prompt: "Gas is \\(\\$4\\)/gal and the car averages 25 mpg. Alan wants to reduce weekly gas spending by \\(\\$5\\). Let \\(m\\) be miles fewer per week. Which equation is correct?",
+          choices: [
+            "\\(\\tfrac{25}{4}m=95\\)",
+            "\\(\\tfrac{25}{4}m=5\\)",
+            "\\(\\tfrac{4}{25}m=95\\)",
+            "\\(\\tfrac{4}{25}m=5\\)"
+          ],
+          answerIndex: 3,
+          explanation: "Each mile costs \\(4/25\\) dollars; to save 5 dollars: \\((4/25)m = 5\\)."
+        },
+        {
+          id: "6e706172",
+          prompt: "A product costs \\(\\$65\\) to make and sells for \\(\\$100\\). The salesperson earns a commission equal to 20% of the sales price. Profit per unit equals price minus the combined cost of making the product and the commission. Which equation gives the number of units, \\(u\\), the company sold to make a profit of \\(\\$6{,}840\\)?",
+          choices: [
+            "\\((100(1-0.2)-65)u=6840\\)",
+            "\\((100-65)(1-0.2)u=6840\\)",
+            "\\(0.8(100)-65u=6840\\)",
+            "\\((0.2(100)+65)u=6840\\)"
+          ],
+          answerIndex: 0,
+          explanation: "Profit per unit: \\(100 - 0.2\\cdot100 -65 = 100(1-0.2)-65\\); multiply by \\(u\\)."
+        },
+        {
+          id: "509cb1a6",
+          prompt: "\\(4x+12=\\dfrac{a(x+3)}{2}\\). If the equation has infinitely many solutions, what is the value of \\(a\\)?",
+          choices: ["0","3","8","12"],
+          answerIndex: 2,
+          explanation: "Multiply both sides by 2: \\(8x+24 = a(x+3) = ax+3a\\). Matching coefficients: \\(a=8\\)."
+        }
+      ]
+    };
+  </script>
+
+  <script src="/assets/js/quiz-engine.js" defer></script>
+</body>
+</html>
