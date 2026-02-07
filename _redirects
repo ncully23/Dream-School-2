@@ -1,0 +1,13 @@
+# MAIN PAGES
+# Pretty URL -> canonical quiz runner
+/practice/circles/quiz     /practice/quiz.html?quizId=circles   302
+/practice/nonlinear/quiz   /practice/quiz.html?quizId=nonlinear 302
+
+# Back-compat for any legacy URLs you used before
+/practice/circles/*   /practice/quiz.html?quizId=circles   302
+
+# PROFILE PAGES
+/profile/login  /pages/profile/login.html  200
+
+# CATCH-ALL
+/*           /pages/:splat           200
